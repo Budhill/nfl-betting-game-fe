@@ -17,7 +17,7 @@ export class TodosComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.teams = [new Team('Seahawks', 0, 0, 0), new Team('Giants', 0, 0, 0)]
+    this.teams = [new Team('Seahawks'), new Team('Giants')]
     this.games = [new Game(this.teams[0], this.teams[1])
     ]
   }
@@ -34,11 +34,8 @@ export class TodosComponent implements OnInit {
     this.games = this.games.filter((v, i) => i !== id);
   }
 
-  addTodo () {
-    this.games.push({
-      content: this.inputTodo,
-      completed: false
-    });
+  addGame() {
+    this.games.push(new Game(new Team('test'), new Team('test2')));
 
     this.inputTodo = "";
   }
